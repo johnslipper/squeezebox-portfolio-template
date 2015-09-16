@@ -57,9 +57,11 @@ jQuery(document).ready(function(){
 	//go to next/pre slide - clicking on the next/prev arrow
 	sliderNav.on('click', '.next', function(){
 		nextSides(projectsSlider);
+		event.preventDefault(); //prevent hash in location bar
 	});
 	sliderNav.on('click', '.prev', function(){
 		prevSides(projectsSlider);
+		event.preventDefault(); //prevent hash in location bar
 	});
 
 	//go to next/pre slide - keyboard navigation
