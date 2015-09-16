@@ -576,3 +576,16 @@ Project content panel
     .cd-project-content .close {
       top: 30px;
       right: 5%; } }
+
+/* On project sub pages visited directly or when no JS available,
+	 rather than via AJAX from main page. */
+.no-ajax .cd-project-content {
+  visibility: visible;
+  position: static;
+  -webkit-transform: none;
+  -ms-transform: none;
+      transform: none;
+  -webkit-transition: none;
+  transition: none; }
+  .no-ajax .cd-project-content .close {
+    position: fixed; }
