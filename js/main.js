@@ -3,7 +3,9 @@ jQuery(document).ready(function(){
 		projectsContainer = $('.cd-projects-wrapper'),
 		projectsSlider = projectsContainer.children('.cd-slider'),
 		singleProjectContent = $('.cd-project-content'),
-		sliderNav = $('.cd-slider-navigation');
+		sliderNav = $('.cd-slider-navigation'),
+		ajaxDestination = $('#jsAjaxDestination'), //destination element for ajax loaded content
+		ajaxSource = '#jsAjaxSource'; //source element on subpage to be used as ajax content
 
 	var resizing = false;
 	
@@ -45,6 +47,7 @@ jQuery(document).ready(function(){
 			nextSides(projectsSlider);
 		} else {
 			singleProjectContent.addClass('is-visible');
+			getProjectContent($(this).attr('href')); //ajax loading of project content
 		}
 	});
 
@@ -85,6 +88,13 @@ jQuery(document).ready(function(){
 		var mq = checkMQ();
 		if ( !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) prevSides(projectsSlider);
 	});
+
+	function getProjectContent(url) {
+		if(!url) { return false; }
+		var request = url + " " + ajaxSource;
+		console.log(request);
+		ajaxDestination.load(request);
+	}
 
 	function showProjectPreview(project) {
 		if(project.length > 0 ) {
