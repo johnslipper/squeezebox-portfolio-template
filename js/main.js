@@ -92,7 +92,7 @@ jQuery(document).ready(function(){
 	function getProjectContent(url) {
 		if(!url) { return false; }
 		var request = url + " " + ajaxSource;
-		console.log(request);
+		ajaxDestination.html('Loading...')
 		ajaxDestination.load(request);
 	}
 
